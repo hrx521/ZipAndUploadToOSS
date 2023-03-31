@@ -19,14 +19,6 @@ internal class Program
             IConfigurationRoot configurationRoot = configuration
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", true, true).Build();
-
-            ////可以使用Bind(instance)方法来将配置映射到实例
-            //configurationRoot.GetSection(nameof(OssOptions)).Bind(ossOptions);
-            //IConfigurationSection configurationSection = configurationRoot.GetSection(nameof(ZipOptions));
-            //configurationSection.Bind(zipOptions);
-            ////也可以用Get<T>() 来将json配置映射到 实例
-            //var zOptions = configurationRoot.GetSection(nameof(ZipOptions)).Get<ZipOptions>();
-            //var oOptions = configurationRoot.GetSection(nameof(OssOptions)).Get<OssOptions>();
         })
         .ConfigureServices((hostBuilderContext, services) =>
         {
